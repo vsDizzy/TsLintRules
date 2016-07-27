@@ -1,0 +1,12 @@
+{
+  "name": "ts-lint-rules",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "tsc": "tsc --pretty"
+  }
+}
