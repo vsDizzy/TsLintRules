@@ -21,7 +21,8 @@ class ArrowFunctionWalker extends Lint.RuleWalker {
         && nodes[1]._children.length === 1
         && nodes[2].kind === ts.SyntaxKind.CloseParenToken) {
 
-        this.addFailure(this.createFailure(nodes[1].getStart(), nodes[1].getWidth(), Rule.FAILURE_STRING));
+        this.addFailure(this.createFailure(nodes[0].getStart(), nodes[0].getWidth(), Rule.FAILURE_STRING));
+        this.addFailure(this.createFailure(nodes[2].getStart(), nodes[2].getWidth(), Rule.FAILURE_STRING));
       }
     }
 
