@@ -1,13 +1,10 @@
 {
   "version": "0.1.0",
-  "command": "tsc",
+  "command": "npm",
   "isShellCommand": true,
   "args": [
-    "-w",
-    "-p",
-    "."
+    "start"
   ],
-  "showOutput": "silent",
   "isWatching": true,
   "problemMatcher": "$tsc-watch"
 }

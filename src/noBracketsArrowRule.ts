@@ -10,22 +10,18 @@ export class Rule extends Lint.Rules.AbstractRule {
 }
 
 class ArrowFunctionWalker extends Lint.RuleWalker {
-  public visitNode(node) {
-    if (node.kind === ts.SyntaxKind.Parameter
-      && node.parent.kind === ts.SyntaxKind.ArrowFunction) {
+  public visitArrowFunction(node: ts.FunctionLikeDeclaration) {
+    if (node.kind === ts.SyntaxKind.ArrowFunction) {
+      if (node.parameters.length == 1) {
+        let sf = node.getSourceFile();
+        let text = node.getText(sf);
 
-      let nodes = node.parent._children;
-      if (nodes.length === 5
-        && nodes[0].kind === ts.SyntaxKind.OpenParenToken
-        && nodes[1].kind === ts.SyntaxKind.SyntaxList
-        && nodes[1]._children.length === 1
-        && nodes[2].kind === ts.SyntaxKind.CloseParenToken) {
-
-        this.addFailure(this.createFailure(nodes[0].getStart(), nodes[0].getWidth(), Rule.FAILURE_STRING));
-        this.addFailure(this.createFailure(nodes[2].getStart(), nodes[2].getWidth(), Rule.FAILURE_STRING));
+        if (/^\(/.test(text)) {
+          this.addFailure(this.createFailure(node.getStart(), node.getWidth(), Rule.FAILURE_STRING));
+        }
       }
     }
 
-    super.visitNode(node);
+    super.visitArrowFunction(node);
   }
 }

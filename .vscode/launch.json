@@ -8,12 +8,10 @@
       "program": "${workspaceRoot}/node_modules/tslint/lib/tslint-cli.js",
       "stopOnEntry": false,
       "args": [
-        "-r",
-        "dist",
-        "src/app.ts"
+        "test/app.ts"
       ],
       "cwd": "${workspaceRoot}",
-      "preLaunchTask": null,
+      "preLaunchTask": "npm",
       "runtimeExecutable": null,
       "runtimeArgs": [
         "--nolazy"

@@ -1,13 +1,13 @@
 {
-  "name": "ts-lint-rules",
+  "name": "tslint-rules",
   "version": "0.0.1",
   "private": true,
+  "main": "tslint.json",
   "devDependencies": {
-    "tslint": "^3.13.0",
+    "tslint": "^3.14.0",
     "typescript": "^1.8.10"
   },
   "scripts": {
-    "build": "tsc --pretty",
-    "install": "build"
+    "start": "tsc -w --pretty"
   }
 }
